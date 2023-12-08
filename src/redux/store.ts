@@ -3,10 +3,12 @@
 import { useDispatch } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import catalogReducer from '../redux/slices/catalogClise'
+import basketReducer from '../redux/slices/basketClise'
 
 export const store = configureStore({
   reducer: {
     catalog: catalogReducer,
+    basket: basketReducer
   },
 })
 

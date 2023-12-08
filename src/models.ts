@@ -7,7 +7,7 @@ export interface CatalogItem {
   description: string;
   image: string;
 }
-export type CatalogItemProps = {
+export type ObjectItem = {
   id: number;
   price: number;
   title: string;

@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import Header from "./Header/Header";
 import Catalog from './pages/Catalog/Catalog';
 import News from './pages/News/News';
+import Basket from "./pages/Basket/Basket";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="catalog" element={<Catalog />} />
         <Route path="news" element={<News />} />
+        <Route path="basket" element={<Basket />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </>

@@ -1,15 +1,16 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import CatalogItem from "./CatalogItem";
-import { CatalogItemProps } from "../../models";
+import { ObjectItem } from "../../models";
 import Loader from "../../Loader/Loader";
 import "./catalog.scss";
+
 
 const Catalog = () => {
   const status = useSelector((state: RootState) => state.catalog.status);
   const catalog = useSelector((state: RootState) => state.catalog.catalog);
 
-  console.log(catalog);
+  // console.log(catalog);
 
   return (
     <section className="catalog">
@@ -25,7 +26,7 @@ const Catalog = () => {
             ) : status === "loading" ? (
               [...Array(10)].map((item, i) => <Loader key={i} />)
             ) : (
-              catalog.map((item: CatalogItemProps) => (
+              catalog.map((item: ObjectItem) => (
                 <CatalogItem key={item.id} item={item} />
               ))
             )}
