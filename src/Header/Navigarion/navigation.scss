@@ -1,0 +1,33 @@
+
+@import "../../scss-setings/vars.scss";
+
+
+.navigation {
+  margin-right: auto;
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    transform: skew(-6deg);
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__link {
+    padding: 3px 10px;
+    color: $text;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+
+    &--active {
+      transition: color 0.3s ease-in-out;
+      color: #4b4b4b;
+      border: 1px solid #4b4b4b;
+    }
+  }
+
+
+}

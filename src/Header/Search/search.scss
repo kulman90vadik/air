@@ -1,0 +1,75 @@
+@import "../../scss-setings/vars.scss";
+
+.search {
+  position: relative;
+  margin-right: 15px;
+  &__btn {
+    width: 35px;
+    display: flex;
+    height: 35px;
+    outline: transparent;
+  }
+
+  &__icon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    path {
+      fill: #fff;
+      transition: fill 0.3s ease-in;
+    }
+  }
+
+  &__icon-white {
+    fill: $white;
+    path {
+      fill: $white;
+      transition: fill 0.3s ease-in;
+    }
+  }
+
+  &__input {
+    width: 0%;
+    border: none;
+    padding: 0;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+  }
+
+  &__info {
+    position: absolute;
+    height: 30px;
+    right: 40px;
+    top: 3px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in;
+    width: 300px;
+    transform-origin: right;
+    &--open {
+      transform: scaleX(1);
+      transition: transform 0.3s ease-in;
+      & .search__input {
+        border: 1px solid $white;
+        padding: 2px 15px;
+        height: 100%;
+        width: 100%;
+        display: block;
+        background-color: transparent;
+        border-radius: 15px;
+        outline: transparent;
+        color: $white;
+        &::placeholder {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  
+}

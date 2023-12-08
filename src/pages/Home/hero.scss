@@ -1,0 +1,24 @@
+// @import '../scss-setings/vars.scss';
+
+.hero {
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: bottom center;
+  background-size: 67% 67%;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -5;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);;
+  }
+
+  &__svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+}
