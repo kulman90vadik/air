@@ -3,6 +3,7 @@ import { RootState } from "../../redux/store";
 import CatalogItem from "./CatalogItem";
 import { ObjectItem } from "../../models";
 import Loader from "../../Loader/Loader";
+import ModalNewProduct from "./ModalNewProduct";
 import "./catalog.scss";
 
 
@@ -33,6 +34,9 @@ const Catalog = () => {
           </>
         </ul>
       </div>
+      
+      <ModalNewProduct />
+
     </section>
   );
 };

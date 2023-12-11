@@ -1,0 +1,24 @@
+
+.basket-card {
+  border: 1px solid #ccc;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  
+  &__article {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__photo {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+  }
+
+  &__image {
+    height: 80%;
+    margin: auto;
+  }
+}

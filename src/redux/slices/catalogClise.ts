@@ -1,15 +1,15 @@
 // 3 ШАГ
 import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import {CatalogItem} from '../../models';
+import {ObjectItem} from '../../models';
 type FetchParams = { categoryId: string, page: string, orderId: string }
 // ODER
 // type FetchParams = Record <string, string>;
 
-export const fetchCatalog = createAsyncThunk<CatalogItem[], Record<string, string>>('catalog/fetchCatalogStatus', async (params) => {
+export const fetchCatalog = createAsyncThunk<ObjectItem[], Record<string, string>>('catalog/fetchCatalogStatus', async (params) => {
   const { categoryId, page, orderId } = params;
-  const { data } = await axios.get<CatalogItem[]>('https://fakestoreapi.com/products');
-    return data as CatalogItem[];
+  const { data } = await axios.get<ObjectItem[]>('https://fakestoreapi.com/products');
+    return data as ObjectItem[];
   }
 )
 
@@ -22,9 +22,10 @@ export enum Status {
 
 
 interface CatalogState {
-  catalog: CatalogItem[];
+  catalog: ObjectItem[];
   // status: 'loading' | 'success' | 'error';
   status: Status;
+  // btn: boolean
 }
 
 const initialState: CatalogState = {
@@ -38,9 +39,18 @@ export const catalogSlice = createSlice({
   initialState,
 
   reducers: {
-    // categoryChange: (state, index: PayloadAction<number>) => {
-    //   state.countCategory = index.payload;
-    // },
+    btnChange: (state, obj: PayloadAction<ObjectItem>) => {
+      state.catalog = state.catalog.map((el) =>
+        Number(el.id) !== Number(obj.payload.id)
+          ? el
+          : { ...el, btn: !el.btn }
+      );
+    },
+    addNewProduct: (state, newObj: PayloadAction<ObjectItem>) => {
+      state.catalog = [{ ...newObj.payload }, ...state.catalog];
+      console.log(newObj.payload);
+    }
+
   },
 
   extraReducers: (builder) => {
@@ -60,6 +70,6 @@ export const catalogSlice = createSlice({
 
 });
 
-export const {} = catalogSlice.actions;
+export const {btnChange, addNewProduct} = catalogSlice.actions;
 
 export default catalogSlice.reducer;

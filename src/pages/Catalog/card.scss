@@ -113,6 +113,18 @@ height: 100%;
       background-color: yellow;
       color: #000;
     }
+
+    &--active {
+      transition: background-color 0.3s ease-in;
+      background-color: green;
+      color: #000;
+      &:hover {
+        background-color: green;
+        color: #000;
+      }
+    }
   }
+
+
 
 }

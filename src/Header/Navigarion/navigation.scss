@@ -4,10 +4,12 @@
 
 .navigation {
   margin-right: auto;
+
   &__list {
     display: flex;
     align-items: center;
   }
+  
   &__item {
     transform: skew(-6deg);
     &:not(:last-child) {
@@ -24,8 +26,8 @@
 
     &--active {
       transition: color 0.3s ease-in-out;
-      color: #4b4b4b;
-      border: 1px solid #4b4b4b;
+      color: #fff;
+      border: 1px solid #fff;
     }
   }
 

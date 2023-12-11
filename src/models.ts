@@ -1,18 +1,22 @@
 
-export interface CatalogItem {
-  id: number;
-  price: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-}
+// export interface CatalogItem {
+//   id: number;
+//   price: number;
+//   title: string;
+//   category: string;
+//   description: string;
+//   image: string;
+//   btn: boolean
+// }
+
+
 export type ObjectItem = {
-  id: number;
+  id?: number;
   price: number;
   title: string;
   category: string;
   description: string;
-  image: string;
+  image?: string;
+  btn?: boolean
 }
 

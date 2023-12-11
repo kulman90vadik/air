@@ -1,10 +1,15 @@
 import "./basket-header.scss";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const Basket = () => {
+
+  const count = useSelector((state: RootState) => state.basket.count);
+
   return (
     <div className="basket-header">
-      <Link to="basket" className="">
+      <Link to="basket" className="basket-header__link">
         <button className="basket-header__btn btn-reset" type="button">
           <svg
             className="basket-header__icon"
@@ -34,6 +39,7 @@ const Basket = () => {
               fill="#1C274C"
             />
           </svg>
+          <div className="basket-header__count">{count}</div>
         </button>
       </Link>
     </div>

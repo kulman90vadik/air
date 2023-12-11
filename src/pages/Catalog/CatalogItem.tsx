@@ -3,6 +3,7 @@ import { ObjectItem } from "../../models";
 import "./card.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { addToBasket } from "../../redux/slices/basketClise";
+import { btnChange } from "../../redux/slices/catalogClise";
 
 type CatalogProps = {
   item: ObjectItem;
@@ -10,12 +11,14 @@ type CatalogProps = {
 
 const CatalogItem: React.FC<CatalogProps> = ({ item }) => {
   const[open, setOpen] = useState(false);
+  // const[bntActive, setBntActive] = useState(false);
   const dispatch = useDispatch();
 
 
   const addBasket = (obj: ObjectItem) => {
-    // console.log(obj);
+    // setBntActive(prev => !prev)
     dispatch(addToBasket(obj))
+    dispatch(btnChange(obj))
   }
 
 
@@ -35,7 +38,7 @@ const CatalogItem: React.FC<CatalogProps> = ({ item }) => {
         </div>
         <span className="card__title">{item.title}</span>
         <span className="card__price">{item.price} $</span>
-        <button className="btn-reset card__btn" type="button" onClick={() => addBasket(item)}>
+        <button className={`btn-reset card__btn ${item.btn ? 'card__btn--active' : ''}`} type="button" onClick={() => addBasket(item)}>
           Add to Card
         </button>
       </article>

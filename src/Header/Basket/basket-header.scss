@@ -17,4 +17,22 @@
     }
   }
 
+  &__link {
+    position: relative;
+  }
+
+  &__count {
+    position: absolute;
+    right: -5px;
+    top: -1px;
+    color: #fff;
+    background-color: green;
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 12px;
+    width: 17px;
+    height: 17px;
+    line-height: 1;
+    font-weight: 700;
+  }
 }

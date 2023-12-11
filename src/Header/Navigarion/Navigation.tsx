@@ -20,6 +20,9 @@ const Navigation = () => {
           <li className="navigation__item">
             <NavLink to="news" className={({isActive}) => isActive ? activeLink : normalLink}>News</NavLink>
           </li>
+          <li className="navigation__item">
+            <NavLink to="basket" className={({isActive}) => isActive ? activeLink : normalLink}>Basket</NavLink>
+          </li>
         </ul>
     </nav>
   );

@@ -3,11 +3,13 @@ import { ObjectItem } from "../../models";
 
 interface BasketState {
   basket: ObjectItem[];
+  count: number
   // status: Status;
 }
 
 const initialState: BasketState = {
   basket: [],
+  count: 0
   // status: Status.LOADING
 };
 
@@ -22,7 +24,9 @@ export const basketSlice = createSlice({
         state.basket = state.basket.filter((elem) => {
           return elem.id !== obj.payload.id;
         });
+        state.count = state.count - 1;
       } else {
+        state.count = state.count + 1;
         state.basket = [...state.basket, { ...obj.payload }];
       }
     },
