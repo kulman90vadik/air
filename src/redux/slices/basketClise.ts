@@ -31,10 +31,15 @@ export const basketSlice = createSlice({
       }
     },
 
+    delCartBasket: (state, obj:PayloadAction<ObjectItem>) => {
+      state.basket = state.basket.filter((elem) => elem.id !== obj.payload.id);
+      state.count = state.count - 1;
+    }
+
 
   },
 });
 
-export const { addToBasket } = basketSlice.actions;
+export const { addToBasket, delCartBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

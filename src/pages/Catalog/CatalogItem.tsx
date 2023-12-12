@@ -14,6 +14,7 @@ const CatalogItem: React.FC<CatalogProps> = ({ item }) => {
   // const[bntActive, setBntActive] = useState(false);
   const dispatch = useDispatch();
 
+  
 
   const addBasket = (obj: ObjectItem) => {
     // setBntActive(prev => !prev)

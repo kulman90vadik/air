@@ -16,7 +16,7 @@ export type ObjectItem = {
   title: string;
   category: string;
   description: string;
-  image?: string;
-  btn?: boolean
+  image: string;
+  btn: boolean
 }
 

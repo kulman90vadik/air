@@ -48,7 +48,7 @@ export const catalogSlice = createSlice({
     },
     addNewProduct: (state, newObj: PayloadAction<ObjectItem>) => {
       state.catalog = [{ ...newObj.payload }, ...state.catalog];
-      console.log(newObj.payload);
+      // console.log(newObj.payload);
     }
 
   },

@@ -1,13 +1,16 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import { RootState } from "../../redux/store";
 import CatalogItem from "./CatalogItem";
 import { ObjectItem } from "../../models";
 import Loader from "../../Loader/Loader";
 import ModalNewProduct from "./ModalNewProduct";
 import "./catalog.scss";
+// import './form-product.scss';
 
 
 const Catalog = () => {
+  const [open, setOpen] = useState<boolean>(false);
   const status = useSelector((state: RootState) => state.catalog.status);
   const catalog = useSelector((state: RootState) => state.catalog.catalog);
 
@@ -34,8 +37,14 @@ const Catalog = () => {
           </>
         </ul>
       </div>
-      
-      <ModalNewProduct />
+
+      <div className="catalog__plus" onClick={() => setOpen(true)}>
+        <span className="catalog__title">Added new Product</span>
+      </div>
+
+      <div className={`form-product__modal ${open ? "form-product__modal--active" : null}`}>
+        <ModalNewProduct setOpen={setOpen} open={open}/>
+      </div>
 
     </section>
   );
