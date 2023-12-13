@@ -10,6 +10,7 @@ import Header from "./Header/Header";
 import Catalog from './pages/Catalog/Catalog';
 import News from './pages/News/News';
 import Basket from "./pages/Basket/Basket";
+import Login from './pages/Login/Login';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -29,6 +30,7 @@ function App() {
         <Route path="catalog" element={<Catalog />} />
         <Route path="news" element={<News />} />
         <Route path="basket" element={<Basket />} />
+        <Route path="login" element={<Login />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </>

@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import {ObjectItem} from '../../models';
+
 type FetchParams = { categoryId: string, page: string, orderId: string }
 // ODER
 // type FetchParams = Record <string, string>;
@@ -29,8 +30,9 @@ interface CatalogState {
 }
 
 const initialState: CatalogState = {
-  catalog: [],
-  status: Status.LOADING
+  status: Status.LOADING,
+  // catalog: JSON.parse(localStorage.getItem('cart')) || []
+  catalog: []
 };
 
 

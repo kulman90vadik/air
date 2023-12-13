@@ -42,7 +42,7 @@ const Catalog = () => {
         <span className="catalog__title">Added new Product</span>
       </div>
 
-      <div className={`form-product__modal ${open ? "form-product__modal--active" : null}`}>
+      <div className={`modal ${open ? "modal--active" : null}`}>
         <ModalNewProduct setOpen={setOpen} open={open}/>
       </div>
 

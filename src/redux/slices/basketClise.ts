@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ObjectItem } from "../../models";
+import { getCartLS } from "../../utils/getCartLS";
 
 interface BasketState {
   basket: ObjectItem[];
@@ -8,7 +9,7 @@ interface BasketState {
 }
 
 const initialState: BasketState = {
-  basket: [],
+  basket: getCartLS(),
   count: 0
   // status: Status.LOADING
 };

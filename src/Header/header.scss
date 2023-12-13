@@ -1,3 +1,5 @@
+@import '../scss-setings/vars.scss';
+
 
 .header {
   position: fixed;
@@ -17,4 +19,30 @@
   &__logo {
     margin-right: 25px;
   }
+  
+  &__btn {
+    margin-right: 15px;
+    width: 35px;
+    display: flex;
+    height: 35px;
+  }
+
+  &__icon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    path {
+      fill: #fff;
+    }
+  }
+
+  &__icon-white {
+    fill: $white;
+    path {
+      fill: $white;
+      transition: fill 0.3s ease-in;
+    }
+  }
+
 }
