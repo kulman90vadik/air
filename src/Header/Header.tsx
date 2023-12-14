@@ -10,6 +10,7 @@ import Basket from "./Basket/Basket";
 
 const Header = () => {
   const basket = useSelector((state: RootState) => state.basket.basket);
+  // const catalog = useSelector((state: RootState) => state.catalog.catalog);
   
 
 
@@ -21,7 +22,6 @@ const Header = () => {
     }
     isMounted.current = true;
   }, [basket]);
-
 
 
 

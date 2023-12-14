@@ -22,7 +22,7 @@ const CatalogItem: React.FC<CatalogProps> = ({ item }) => {
     dispatch(btnChange(obj))
   }
 
-
+// console.log(item);
 
   return (
     <li className="card">

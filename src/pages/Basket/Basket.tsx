@@ -7,7 +7,9 @@ import "./basket.scss";
 
 const Basket = () => {
 
-  const basket = useSelector((state: RootState) => state.basket.basket);
+  const basket: ObjectItem[] = useSelector((state: RootState) => state.basket.basket);
+  // const count = useSelector((state: RootState) => state.basket.count);
+  console.log(basket);
 
   return (
     <section className="basket">

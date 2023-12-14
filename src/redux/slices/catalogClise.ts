@@ -2,6 +2,9 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import {ObjectItem} from '../../models';
+// import { getCartLS } from '../../utils/getCartLS';
+// import { getCartLSCatalog } from '../../utils/getCartLS';
+// import { getCartLS } from '../../utils/getCartLS';
 
 type FetchParams = { categoryId: string, page: string, orderId: string }
 // ODER

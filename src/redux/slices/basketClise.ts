@@ -14,8 +14,10 @@ const initialState: BasketState = {
   // status: Status.LOADING
 };
 
+
+
 export const basketSlice = createSlice({
-  name: "catalog",
+  name: "basket",
   initialState,
 
   reducers: {
@@ -28,7 +30,7 @@ export const basketSlice = createSlice({
         state.count = state.count - 1;
       } else {
         state.count = state.count + 1;
-        state.basket = [...state.basket, { ...obj.payload }];
+        state.basket = [...state.basket, { ...obj.payload, btn: true }]; //????
       }
     },
 
