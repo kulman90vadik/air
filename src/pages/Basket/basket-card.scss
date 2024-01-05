@@ -1,7 +1,7 @@
 
 .basket-card {
   border: 1px solid rgba(#e4e4e4, 0.4);
-  width: 75%;
+  width: 100%;
   
   &:hover {
     .basket-card__close {
@@ -21,7 +21,7 @@
   }
 
   &__photo {
-    width: 200px;
+    min-width: 200px;
     height: 200px;
     background-color: #fff;
     display: flex;
@@ -38,6 +38,13 @@
     padding: 5px 15px;
     max-width: 200px;
     width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 21px;
+  }
+
+  &__price {
+    font-size: 33px;
   }
 
   &__close {

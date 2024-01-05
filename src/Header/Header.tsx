@@ -1,17 +1,18 @@
 import "./header.scss";
 // import '../pages/Login/login.scss';
 import { useSelector } from "react-redux";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { RootState } from "../redux/store";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navigation from "./Navigarion/Navigation";
 import Search from "./Search/Search";
 import Basket from "./Basket/Basket";
 
 const Header = () => {
+  const location = useLocation();
   const basket = useSelector((state: RootState) => state.basket.basket);
-  // const catalog = useSelector((state: RootState) => state.catalog.catalog);
-  
+
+  const[open, setOpen] = useState(false);
 
 
   const isMounted = useRef(false);
@@ -33,8 +34,11 @@ const Header = () => {
           <img className="header__image" src="/images/logo.svg" alt="logo" />
         </Link>
 
-        <Navigation />
-        <Search />
+        <Navigation open={open} setOpen={setOpen}/>
+
+        {location.pathname === '/catalog' && 
+          <Search />
+        }
 
         <Link to="login" className="">
           <button className="header__btn btn-reset" type="button">
@@ -65,6 +69,11 @@ const Header = () => {
         </Link>
 
         <Basket />
+      <button className={`btn-reset header-burger ${open ? 'header-burger--active' : ''}`} type="button" onClick={() => setOpen(!open)}>
+        <span className="header-burger__item"></span>
+        <span className="header-burger__item"></span>
+        <span className="header-burger__item"></span>
+      </button>
       </div>
     </header>
   );

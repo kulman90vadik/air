@@ -30,6 +30,28 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
+
+  &__info--hidden {
+    opacity: 0;
+    overflow: hidden;
+    transition: all .2s ease;
+    height: 0;
+    width: 0;
+  }
+
+  &__contact {
+    opacity: 0;
+    overflow: hidden;
+    transition: all .2s ease;
+    width: 0;
+    height: 0;
+  }
+  &__contact--active {
+    opacity: 1;
+    overflow: visible;
+    transition: all .2s ease;
+  }
+
   &__close {
     padding: 2px 6px;
     color: red;
@@ -79,6 +101,10 @@
     color: #000;
     &:focus {
       border-color: green;
+    }
+    &::placeholder {
+      color: red;
+      font-weight: 700;
     }
   }
 

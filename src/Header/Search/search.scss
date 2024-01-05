@@ -33,6 +33,10 @@
     width: 0%;
     border: none;
     padding: 0;
+    &:focus {
+      box-shadow: 1px 0px 15px yellow;
+      transition: all 0.3s ease;
+    }
   }
 
   input[type="search"]::-webkit-search-decoration,
@@ -69,6 +73,15 @@
         }
       }
     }
+  }
+
+  &__close {
+    position: absolute;
+    right: 11px;
+    top: 2px;
+    font-weight: 700;
+    font-size: 22px;
+    color: red;
   }
 
   

@@ -1,13 +1,30 @@
 import './search.scss';
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { updateSearchValue, closeSearchHandler } from "../../redux/slices/searchClise";
+
 
 const Search = () => {
-  const[open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const refInput = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
 
+
+  const clickSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+    dispatch(updateSearchValue(e.target.value));
+  }
+
+  const closeSearch = () => {
+    setValue('');
+    dispatch(closeSearchHandler());
+    refInput.current?.focus();
+  }
 
   return (
     <div className="search">
-       <button onClick={() => setOpen((prev) => !prev)} className="search__btn btn-reset" type="button">
+      <button onClick={() => setOpen((prev) => !prev)} className="search__btn btn-reset" type="button">
         <svg className={`search__icon ${open ? 'search__icon-white' : ''}`}
           width="80px"
           height="80px"
@@ -26,7 +43,16 @@ const Search = () => {
         </svg>
       </button>
       <div className={`search__info ${open ? 'search__info--open' : ''}`}>
-        <input className="search__input" type="search" placeholder="Search"  />
+        <input 
+          className="search__input" 
+          type="text" 
+          ref={refInput}
+          placeholder="Search" 
+          onChange={(e) => clickSearchHandler(e)} 
+          value={value} 
+        />
+        {value ? <button className='search__close btn-reset' type='button' onClick={closeSearch}>X</button> : null}
+        
       </div>
     </div>
   );

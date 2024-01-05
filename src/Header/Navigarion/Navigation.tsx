@@ -2,30 +2,38 @@
 import './navigation.scss';
 import { NavLink } from "react-router-dom";
 
+const links = [
+  { link: '/', text: 'Home' },
+  { link: 'catalog', text: 'Catalog' },
+  { link: 'news', text: 'News' },
+  { link: 'basket', text: 'Basket' }
+]
 
-const Navigation = () => {
+type Props = {
+  open: boolean;
+  setOpen: (bool: boolean) => void
+}
+
+const Navigation: React.FC<Props> = ({ open, setOpen }) => {
 
   const activeLink = 'navigation__link navigation__link--active';
   const normalLink = 'navigation__link';
 
   return (
-    <nav className="navigation">
+    <nav className={`${open ? 'navigation navigation--active' : 'navigation'}`}>
       <ul className="navigation__list">
-          <li className="navigation__item">
-            <NavLink to="/" className={({isActive}) => isActive ? activeLink : normalLink} >Home</NavLink>
-          </li>
-          <li className="navigation__item">
-            <NavLink to="catalog" className={({isActive}) => isActive ? activeLink : normalLink}>Catalog</NavLink>
-          </li>
-          <li className="navigation__item">
-            <NavLink to="news" className={({isActive}) => isActive ? activeLink : normalLink}>News</NavLink>
-          </li>
-          <li className="navigation__item">
-            <NavLink to="basket" className={({isActive}) => isActive ? activeLink : normalLink}>Basket</NavLink>
-          </li>
-        </ul>
+
+        {links.map(link => {
+          return (
+            <li className="navigation__item">
+              <NavLink to={link.link} className={({ isActive }) => isActive ? activeLink : normalLink} onClick={() => setOpen(false)}>{link.text}</NavLink>
+            </li>
+          )
+        })}
+        
+      </ul>
     </nav>
   );
 }
- 
+
 export default Navigation;

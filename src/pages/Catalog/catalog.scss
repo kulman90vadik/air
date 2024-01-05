@@ -2,10 +2,28 @@
 
 .catalog {
   padding: 100px 0;
+
+  &__container {
+    @media screen and (max-width: 530px) {
+      padding: 0 100px;
+    }
+    @media screen and (max-width: 440px) {
+      padding: 0 15px;
+    }
+  }
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+    @media screen and (max-width: 1020px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 790px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 530px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__error {

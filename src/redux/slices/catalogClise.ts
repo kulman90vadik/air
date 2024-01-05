@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import {ObjectItem} from '../../models';
+import { getCartLS } from '../../utils/getCartLS';
 // import { getCartLS } from '../../utils/getCartLS';
 // import { getCartLSCatalog } from '../../utils/getCartLS';
 // import { getCartLS } from '../../utils/getCartLS';
@@ -29,12 +30,10 @@ interface CatalogState {
   catalog: ObjectItem[];
   // status: 'loading' | 'success' | 'error';
   status: Status;
-  // btn: boolean
 }
 
 const initialState: CatalogState = {
   status: Status.LOADING,
-  // catalog: JSON.parse(localStorage.getItem('cart')) || []
   catalog: []
 };
 
@@ -53,7 +52,6 @@ export const catalogSlice = createSlice({
     },
     addNewProduct: (state, newObj: PayloadAction<ObjectItem>) => {
       state.catalog = [{ ...newObj.payload }, ...state.catalog];
-      // console.log(newObj.payload);
     }
 
   },
@@ -64,7 +62,20 @@ export const catalogSlice = createSlice({
       state.catalog = [];
     });
     builder.addCase(fetchCatalog.fulfilled, (state, action) => {
-      state.catalog = action.payload;
+
+
+      let catalogLG: ObjectItem[] = getCartLS();
+      for (let i = 0; i < action.payload.length; i++) {
+        const newItemIndex: number = catalogLG.findIndex(item => item.id === action.payload[i].id)
+        
+        if (newItemIndex >= 0) {     
+          state.catalog[i] = catalogLG[newItemIndex]
+        }
+        else {
+          state.catalog[i] = action.payload[i]
+        }
+      }
+      // state.catalog = action.payload;
       state.status = Status.SUCCESS;
     });
     builder.addCase(fetchCatalog.rejected, (state, action) => {

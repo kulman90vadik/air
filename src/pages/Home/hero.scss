@@ -6,12 +6,21 @@
   background-position: bottom center;
   background-size: 67% 67%;
   position: relative;
+  @media screen and (max-width: 1020px) {
+    background-size: 56% 43%;
+  }
+  @media screen and (max-width: 720px) {
+    background-size: 86% 51%;
+  }
+  @media screen and (max-width: 470px) {
+    background-size: 83% 33%;
+  }
   &::after {
     content: '';
     position: absolute;
     inset: 0;
     z-index: -5;
-    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);;
+    background-image: linear-gradient(to top, #09203f 0%, #000000 100%);;
   }
 
   &__svg {

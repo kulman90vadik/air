@@ -4,11 +4,13 @@ import { useDispatch } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import catalogReducer from '../redux/slices/catalogClise'
 import basketReducer from '../redux/slices/basketClise'
+import searchReducer from '../redux/slices/searchClise'
 
 export const store = configureStore({
   reducer: {
     catalog: catalogReducer,
-    basket: basketReducer
+    basket: basketReducer,
+    search: searchReducer,
   },
 })
 
