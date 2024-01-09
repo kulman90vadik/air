@@ -8,6 +8,7 @@ import ModalNewProduct from "./ModalNewProduct";
 import "./catalog.scss";
 
 
+
 const Catalog = () => {
   const [open, setOpen] = useState<boolean>(false);
   const status: string = useSelector((state: RootState) => state.catalog.status);

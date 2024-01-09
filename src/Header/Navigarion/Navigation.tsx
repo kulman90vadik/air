@@ -25,7 +25,7 @@ const Navigation: React.FC<Props> = ({ open, setOpen }) => {
 
         {links.map(link => {
           return (
-            <li className="navigation__item">
+            <li className="navigation__item" key={link.text}>
               <NavLink to={link.link} className={({ isActive }) => isActive ? activeLink : normalLink} onClick={() => setOpen(false)}>{link.text}</NavLink>
             </li>
           )

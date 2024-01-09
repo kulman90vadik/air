@@ -1,5 +1,46 @@
 
 
 .news {
-  
+
+  &__container {
+    padding: 100px 15px;
+  }
+
+  &__inner {
+    width: 80%;
+    background-color: rgba(#fff, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    min-height: calc(100vh - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    padding: 10px 25px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    height: 45px;
+    letter-spacing: 3px;
+    color: #000;
+    transition: all 0.3s ease-in;
+    &:hover {
+      background-color: rgba(green, 0.6);
+      transition: all 0.3s ease-in;
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
 }

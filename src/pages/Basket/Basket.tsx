@@ -9,6 +9,8 @@ const Basket = () => {
   const basket: ObjectItem[] = useSelector((state: RootState) => state.basket.basket);
   const totalPrice: number = useSelector((state: RootState) => state.basket.totalPrice);
 
+  
+
   console.log('render basket');
 
   return (

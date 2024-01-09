@@ -11,6 +11,7 @@ import Basket from "./Basket/Basket";
 const Header = () => {
   const location = useLocation();
   const basket = useSelector((state: RootState) => state.basket.basket);
+  const loginOpen: boolean = useSelector((state: RootState) => state.login.loginOpen);
 
   const[open, setOpen] = useState(false);
 
@@ -23,8 +24,6 @@ const Header = () => {
     }
     isMounted.current = true;
   }, [basket]);
-
-
 
 
   return (
@@ -43,7 +42,7 @@ const Header = () => {
         <Link to="login" className="">
           <button className="header__btn btn-reset" type="button">
             <svg
-              className="header__icon"
+              className={`${loginOpen ? 'header__icon' : 'header__icon header__icon--active'}`}
               width="80px"
               height="80px"
               viewBox="0 0 24 24"

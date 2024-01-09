@@ -40,6 +40,14 @@
     }
   }
 
+  &__icon--active {
+    fill: green;
+    ellipse, path {
+      fill: green;
+      opacity: 1;
+    }
+  }
+
   &__icon-white {
     fill: $white;
     path {
