@@ -42,11 +42,11 @@ const Login: React.FC = () => {
 
     if (inputText === "" || inputText !== "Admin") {
       setErrorText("Admin");
-      setInputText("");
+      // setInputText("");
     }
     if (inputPassword === "" || inputPassword !== "12345") {
       setErrorPassword("12345");
-      setInputPassword("");
+      // setInputPassword("");
     }
     if (inputText === "Admin" && inputPassword === "12345") {
       dispatch(setOpen(false));
@@ -66,6 +66,12 @@ const Login: React.FC = () => {
       }
     }
   }, []);
+
+  const clickk = () => {
+    dispatch(setOpen(true));
+    setInputText("");
+    setInputPassword("");
+  }
 
   return (
     <div className="login">
@@ -103,7 +109,10 @@ const Login: React.FC = () => {
       </div>
 
       <div className={`${loginOpen ? "modal__contact" : "modal__contact--active"}`}>
-        Зарегин
+          <div className="modal__descr">Hallo {inputText}</div>
+          <button className="modal__btn btn-reset" type="button" onClick={clickk}>
+            Logout
+          </button>
       </div>
 
       <div className={`modal__title ${password ? "modal__title--active" : ""}`}>

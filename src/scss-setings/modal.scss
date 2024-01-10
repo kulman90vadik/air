@@ -50,6 +50,10 @@
     opacity: 1;
     overflow: visible;
     transition: all .2s ease;
+    background-color: rgba(#fff, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
   }
 
   &__close {
@@ -66,6 +70,12 @@
       background-color: red;
       color: #fff;
     }
+  }
+
+  &__descr {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 22px;
   }
 
   &__btn {
