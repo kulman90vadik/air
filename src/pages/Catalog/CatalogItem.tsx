@@ -29,7 +29,11 @@ const CatalogItem: React.FC<CatalogProps> = ({ item }) => {
           </div>
         </Link>
         <span className="card__title">{item.title}</span>
-        <span className="card__price">{item.price} $</span>
+        <span className="card__price">
+        {
+          new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(item.price)
+        }
+        </span>
         <button
           onClick={() => setOpen(true)}
           className="btn-reset card__descr"

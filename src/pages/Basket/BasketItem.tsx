@@ -34,7 +34,7 @@ const BasketItem: React.FC<BasketProps> = ({item}) => {
       dispatch(plusTotalPrice(item))
   }
 
-  let priceItem = Number((item.price * count).toFixed(1));
+  let priceItem = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(item.price)
 
   return (
     <li className="basket-card">
@@ -43,11 +43,11 @@ const BasketItem: React.FC<BasketProps> = ({item}) => {
           <img src={item.image} alt={item.title} className="basket-card__image" />
         </div>
         <span className="basket-card__title">{item.title}</span>
-        <span className="basket-card__price">{priceItem} $</span>
+        <span className="basket-card__price">{priceItem}</span>
 
         <Counter decrement={decrement} increment={() => increment(item)} count={count}/>
 
-        <button className="basket-card__close btn-reset" type="button" onClick={() => delCard(item, priceItem)}>&#x2715;</button>
+        <button className="basket-card__close btn-reset" type="button" onClick={() => delCard(item, Number(priceItem))}>&#x2715;</button>
       </article>
     </li>
   );

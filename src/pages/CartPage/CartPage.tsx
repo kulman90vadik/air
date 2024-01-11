@@ -9,7 +9,6 @@ const CartItem = () => {
   const [loading, setLoading] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
-  // console.log(id)
   // console.log(`https://fakestoreapi.com/products/${id}`)
   const fetchCart = useCallback(async () => {
     setLoading("loading");
@@ -30,6 +29,9 @@ const CartItem = () => {
     fetchCart();
   }, [fetchCart]);
 
+  console.log(cardItem)
+
+
   return (
     <section className="card-page">
       { loading === "loading" ? (
@@ -48,7 +50,12 @@ const CartItem = () => {
             </div>
             <div className="card-page__info">
               <span className="card-page__title">{cardItem.title}</span>
-              <span className="card-page__price">{cardItem.price}$</span>
+              <span className="card-page__price">
+                {
+                  new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(cardItem.price)
+                }
+              </span>
+              <div className="card-page__text">{cardItem.description}</div>
             </div>
           </article>
         </div>

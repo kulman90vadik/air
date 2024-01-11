@@ -12,8 +12,12 @@
   @media screen and (max-width: 720px) {
     background-size: 86% 51%;
   }
-  @media screen and (max-width: 470px) {
-    background-size: 83% 33%;
+  @media screen and (max-width: 500px) {
+    background-size: 105% 43%;
+    background-position: bottom 40% center;
+  }
+  @media screen and (max-width: 415px) {
+    background-size: 118% 35%;
   }
   &::after {
     content: '';
@@ -29,5 +33,8 @@
     left: 0;
     width: 100%;
     z-index: -1;
+    @media screen and (max-width: 500px) {
+     display: none;
+    }
   }
 }

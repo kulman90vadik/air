@@ -25,13 +25,13 @@ const Basket = () => {
             </ul>
             <div className="basket__total">
               <div className="basket__subtotal">
-                Subtotal: {totalPrice.toFixed(1)} $
+                Subtotal: {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(totalPrice)}
               </div>  
               <div className="basket__shiping">
-                Shiping: 15 $
+                Shiping: 15 €
               </div>  
               <div className="basket__summa">
-                Total: {Number(totalPrice.toFixed(1)) + 15} $
+                Total: {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(totalPrice + 15)} 
               </div>  
             </div>
           </div>
