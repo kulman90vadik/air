@@ -1,8 +1,11 @@
 import "./scss-setings/includes.scss";
 
-import { fetchCatalog } from './redux/slices/catalogClise';
-import { useAppDispatch } from "./redux/store";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { RootState, useAppDispatch } from "./redux/store";
 import { Route, Routes } from "react-router-dom";
+import { fetchCatalog } from './redux/slices/catalogClise';
+
 import Home from "./pages/Home/Home";
 import Header from "./Header/Header";
 import Catalog from './pages/Catalog/Catalog';
@@ -13,12 +16,18 @@ import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   const dispatch = useAppDispatch();
+  const id = useSelector((state: RootState) => state.catalog.sortPriceId);
+  console.log(id);
 
-  let categoryId = 'hhh';
-  let orderId = 'hhhh';
-  let page = 'hhhhhhhh';
 
-  dispatch(fetchCatalog({categoryId, page, orderId}));
+  useEffect(() => {
+    
+      let sortPriceId = id ? `sort=price=${id}` : '';
+      console.log(sortPriceId)
+      dispatch(fetchCatalog({sortPriceId}));
+
+  }, [id])
+
 
 
   return (

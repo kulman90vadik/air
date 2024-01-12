@@ -12,12 +12,12 @@ type FetchParams = { categoryId: string, page: string, orderId: string }
 // type FetchParams = Record <string, string>;
 
 export const fetchCatalog = createAsyncThunk<ObjectItem[], Record<string, string>>('catalog/fetchCatalogStatus', async (params) => {
-  const { categoryId, page, orderId } = params;
-  const { data } = await axios.get<ObjectItem[]>('https://fakestoreapi.com/products');
-    return data as ObjectItem[];
+  const { sortPriceId } = params;
+  const { data } = await axios.get<ObjectItem[]>(`https://fakestoreapi.com/products?${sortPriceId}`);
+  console.log(`https://fakestoreapi.com/products?${sortPriceId}`)
+  return data as ObjectItem[];
   }
 )
-
 
 export enum Status {
   LOADING = 'loading',
@@ -25,18 +25,18 @@ export enum Status {
   ERROR = 'error',
 }
 
-
 interface CatalogState {
   catalog: ObjectItem[];
   // status: 'loading' | 'success' | 'error';
   status: Status;
+  sortPriceId: string
 }
 
 const initialState: CatalogState = {
   status: Status.LOADING,
-  catalog: []
+  catalog: [],
+  sortPriceId: ''
 };
-
 
 export const catalogSlice = createSlice({
   name: "catalog",
@@ -52,6 +52,9 @@ export const catalogSlice = createSlice({
     },
     addNewProduct: (state, newObj: PayloadAction<ObjectItem>) => {
       state.catalog = [{ ...newObj.payload }, ...state.catalog];
+    },
+    changePrice: (state, id: PayloadAction<string>) => {
+      state.sortPriceId = id.payload
     }
 
   },
@@ -86,6 +89,6 @@ export const catalogSlice = createSlice({
 
 });
 
-export const {btnChange, addNewProduct} = catalogSlice.actions;
+export const {btnChange, addNewProduct, changePrice} = catalogSlice.actions;
 
 export default catalogSlice.reducer;

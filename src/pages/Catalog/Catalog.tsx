@@ -6,19 +6,21 @@ import { ObjectItem } from "../../models";
 import Loader from "../../Loader/Loader";
 import ModalNewProduct from "./ModalNewProduct";
 import "./catalog.scss";
-
-
+import FilterCatalog from "./FilterCatalog";
 
 const Catalog = () => {
   const [open, setOpen] = useState<boolean>(false);
   const status: string = useSelector((state: RootState) => state.catalog.status);
   const catalog: ObjectItem[] = useSelector((state: RootState) => state.catalog.catalog);
   const search: string = useSelector((state: RootState) => state.search.search);
-  // console.log(catalog);
 
   return (
     <section className="catalog">
       <div className="catalog__container">
+
+        <FilterCatalog />
+
+
         <ul className="catalog__list">
           <>
             {status === "error" ? (

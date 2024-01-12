@@ -5,8 +5,8 @@ const Loader = () => (
   <ContentLoader 
     speed={2}
     width={255}
-    height={425}
-    viewBox="0 0 255 425"
+    height={445}
+    viewBox="0 0 255 445"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
   >
